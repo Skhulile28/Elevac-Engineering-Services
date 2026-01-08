@@ -1,0 +1,284 @@
+/* content-style.css */
+
+/* --- Variables & Global Defaults --- */
+:root {
+    --primary-color: #0B2545; /* Deep Navy - Trust & Professionalism */
+    --accent-color: #00A8E8;  /* Bright Blue - Cooling/Air */
+    --warm-color: #F97C0E;    /* Orange - Heating (Optional accent) */
+    --light-bg: #F4F7F6;      /* Very light gray background */
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --radius: 8px;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text-dark);
+}
+
+/* --- Typography Overrides --- */
+h2.section-heading, 
+h2.page-title {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+h3.subsection-heading,
+h3.category-heading {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+p.section-text {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+/* --- Buttons --- */
+.cta-button, .submit-button {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 30px; /* Rounded pill shape */
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover, .submit-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section (Home & Pages) --- */
+/* Note: You will need to add actual background-image URLs in your HTML inline styles or here */
+.hero-section, .page-header {
+    background-color: var(--primary-color);
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    /* Dark overlay to make text pop */
+    box-shadow: inset 0 0 0 1000px rgba(11, 37, 69, 0.7); 
+}
+
+#hero-headline, .page-title {
+    color: var(--white); /* Force white on dark background */
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#hero-overview {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- Services Grid (Home & Services Page) --- */
+.services-overview, .service-category {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Transforming the generic list items into cards */
+.service-item, .project-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Keeps image inside rounded corners */
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Image Placeholders */
+.img-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.9rem;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Content inside the card */
+.service-name, .project-title {
+    padding: 20px 20px 10px 20px;
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.service-description, .project-description {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- About Page Styling --- */
+.about-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-section:nth-child(even) {
+    /* Create visual separation */
+    background-color: var(--light-bg);
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* --- Contact Form & Info --- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.contact-info, .contact-form-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-item {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding */
+    font-family: inherit;
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* --- Testimonials --- */
+.testimonial-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.testimonial {
+    font-size: 1.2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-author {
+    display: block;
+    margin-top: 20px;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--accent-color);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    #hero-headline { font-size: 2rem; }
+    .contact-container { flex-direction: column; }
+}
+
+/* --- Social Media Icons Styling --- */
+
+/* Footer Icons */
+#footer-social .social-icon {
+    font-size: 1.5rem;       /* Make icons bigger */
+    margin-right: 15px;      /* Space between icons */
+    color: #f5f5f5;          /* Default white/grey */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;   /* Allows transform to work */
+}
+
+/* Hover effects for Footer Icons */
+#footer-social .social-icon:hover {
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+#footer-social .social-icon .fa-linkedin:hover { color: #0077b5; } /* LinkedIn Blue */
+#footer-social .social-icon .fa-facebook:hover { color: #1877f2; } /* Facebook Blue */
+#footer-social .social-icon .fa-whatsapp:hover { color: #25D366; } /* WhatsApp Green */
+
+/* Contact Page Large Icons */
+.social-icon-large {
+    transition: transform 0.2s;
+}
+
+.social-icon-large:hover {
+    transform: scale(1.1); /* Grow slightly on hover */
+}
