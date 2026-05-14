@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,9 +10,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
   </head>
 
   <body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Rest of your website header starts here... -->
+     
     <header class="site-header" id="main-header">
       <div class="header-container">
         <a href="index.html" class="logo-link" id="company-logo-link">
@@ -27,9 +35,9 @@
           id="nav-toggle-button"
           aria-label="Toggle navigation"
         >
-          <span class="hamburger-line"></span
-          ><span class="hamburger-line"></span
-          ><span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
         </button>
         <nav class="main-nav" id="primary-nav">
           <a href="index.html" class="nav-link active">Home</a>
@@ -41,30 +49,41 @@
     </header>
 
     <main class="main-content" id="home-content">
+      <!-- FIXED: Changed "hero-section" to "page-header" so it matches your CSS properly -->
       <section
-        class="hero-section"
+        class="page-header home-header"
         id="home-hero"
-        style="background-image: url('images/hero-home.jpg')"
+        style="background-image: url(&quot;images/hero-home.jpg&quot;)"
       >
-        <h2 class="section-heading" id="hero-headline">
-          Leading HVAC & Electrical Solutions
-        </h2>
-        <p class="section-text" id="hero-overview">
-          Specializing in service, maintenance, installation, and
-          troubleshooting for residential and commercial clients.
-        </p>
-        <a href="contact.html" class="cta-button">Get a Free Quote</a>
+        <div class="header-content-wrapper">
+          <h2 class="page-title" id="hero-headline">
+            Leading HVAC & Electrical Solutions
+          </h2>
+          <p class="hero-subtitle" id="hero-overview">
+            Specializing in service, maintenance, installation, and
+            troubleshooting for residential and commercial clients.
+          </p>
+          <a href="contact.html" class="cta-button primary-btn"
+            >Get a Free Quote</a
+          >
+        </div>
       </section>
 
-      <section class="services-overview" id="home-services">
-        <h3 class="subsection-heading">Our Expertise</h3>
+      <section class="services-overview modern-section" id="home-services">
+        <div class="section-header">
+          <h3 class="section-heading">Our Expertise</h3>
+          <div class="heading-underline"></div>
+        </div>
+
         <div class="services-list">
           <div class="service-item">
-            <img
-              src="images/service-hvac.jpg"
-              alt="HVAC Installation"
-              class="img-placeholder"
-            />
+            <div class="img-wrapper">
+              <img
+                src="images/service-hvac.jpg"
+                alt="HVAC Installation"
+                class="img-placeholder"
+              />
+            </div>
             <h4 class="service-name">HVAC Installation</h4>
             <p class="service-description">
               Expert installation of heating and cooling systems for maximum
@@ -73,11 +92,13 @@
           </div>
 
           <div class="service-item">
-            <img
-              src="images/service-electrical.jpg"
-              alt="Electrical Services"
-              class="img-placeholder"
-            />
+            <div class="img-wrapper">
+              <img
+                src="images/service-electrical.jpg"
+                alt="Electrical Services"
+                class="img-placeholder"
+              />
+            </div>
             <h4 class="service-name">Electrical Services</h4>
             <p class="service-description">
               Comprehensive electrical repairs, wiring, and maintenance.
@@ -85,37 +106,35 @@
           </div>
 
           <div class="service-item">
-            <img
-              src="images/service-maintenance.jpg"
-              alt="Maintenance"
-              class="img-placeholder"
-            />
+            <div class="img-wrapper">
+              <img
+                src="images/service-maintenance.jpg"
+                alt="Maintenance"
+                class="img-placeholder"
+              />
+            </div>
             <h4 class="service-name">Preventive Maintenance</h4>
             <p class="service-description">
               Scheduled plans to prevent breakdowns and extend equipment life.
             </p>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 30px">
-          <a
-            href="services.html"
-            class="cta-button"
-            style="
-              background-color: transparent;
-              border: 2px solid var(--primary-color);
-              color: var(--primary-color);
-            "
+
+        <div class="button-container">
+          <a href="services.html" class="cta-button outline-btn"
             >View All Services</a
           >
         </div>
       </section>
 
       <section
-        class="us-section"
+        class="us-section modern-section alternate-bg"
         id="why-choose-us"
-        style="padding: 60px 20px; text-align: center"
       >
-        <h3 class="subsection-heading">Why Choose Elevac?</h3>
+        <div class="section-header">
+          <h3 class="section-heading">Why Choose Elevac?</h3>
+          <div class="heading-underline"></div>
+        </div>
         <p class="section-text" id="usp-description">
           Our team of highly skilled technicians is dedicated to providing
           prompt and professional service, ensuring minimal downtime and maximum
@@ -123,33 +142,11 @@
         </p>
       </section>
 
-      <section
-        class="cta-section"
-        id="index-cta"
-        style="background: var(--light-bg); padding: 40px; text-align: center"
-      >
-        <p
-          class="phone-text"
-          id="phone-cta"
-          style="font-size: 1.5rem; font-weight: bold"
-        >
+      <section class="cta-section highlight-bg" id="index-cta">
+        <p class="phone-text" id="phone-cta">
           Need Urgent Service? Call:
-          <span class="phone-number" style="color: var(--accent-color)"
-            >0737277038</span
-          >
+          <a href="tel:0737277038" class="phone-link">0737277038</a>
         </p>
-      </section>
-
-      <section class="testimonial-section" id="home-testimonial">
-        <h3 class="subsection-heading" style="color: white">
-          What Our Customers Say
-        </h3>
-        <blockquote class="testimonial" id="customer-quote">
-          "Elevac Engineering Services provided exceptional service when we
-          needed urgent repairs on our HVAC system. Their team was professional,
-          efficient, and knowledgeable."
-          <footer class="testimonial-author">- Satisfied Customer</footer>
-        </blockquote>
       </section>
     </main>
 
@@ -175,7 +172,6 @@
           <h3 style="color: white; font-size: 1.1rem; margin-top: 0">
             Follow Us
           </h3>
-
           <a
             href="https://linkedin.com"
             target="_blank"
@@ -184,7 +180,6 @@
           >
             <i class="fab fa-linkedin"></i>
           </a>
-
           <a
             href="https://facebook.com"
             target="_blank"
@@ -193,7 +188,6 @@
           >
             <i class="fab fa-facebook"></i>
           </a>
-
           <a
             href="https://wa.me/27737277038"
             target="_blank"

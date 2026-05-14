@@ -1,23 +1,26 @@
+/* Import modern fonts for an engineering/HVAC feel */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500;700&display=swap');
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Clean font for reading */
     margin: 0;
     padding: 0;
     justify-content: center;
     padding-top: 80px;
 }
 
+/* Make headings use the strong, industrial font */
+h1, h2, h3, h4, h5, h6, .nav-link, .logo-link {
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* Main header bar */
 .site-header {
     background-color: #ffffff;
-    /* White background */
     padding: 15px 40px;
-    /* Vertical and horizontal padding */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow like the image */
-    border-bottom: #aea9a9 2px solid;
-    /* Black bottom border */
-
-    /* Bonus: Make it stick to the top */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Softer, larger shadow */
+    border-bottom: 1px solid #eaeaea;
+    border-top: 4px solid #00A8E8; /* Added a splash of accent color to the top */
     position: fixed;
     top: 0;
     left: 0;
@@ -26,288 +29,265 @@ body {
     z-index: 1000;
 }
 
-/* Hamburger Menu */
-/* === Hamburger Menu Button === */
+/* Hamburger Menu Button */
 .nav-toggle {
     display: none;
-    /* Hidden on desktop */
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
     z-index: 1001;
-    /* Ensures it's clickable */
 }
 
 .hamburger-line {
     display: block;
     width: 25px;
-    /* Width of the lines */
     height: 3px;
-    /* Thickness of the lines */
     background-color: #333;
-    /* Color of the lines */
     margin: 5px 0;
-    /* Space between the lines */
     transition: all 0.3s ease;
 }
-
-/* === Responsive (Mobile) Header Styles === */
-/* This is a "media query" that only applies CSS on smaller screens */
-@media (max-width: 768px) {
-
-    /* Make the header padding smaller on mobile */
-    .site-header {
-        padding: 10px 20px;
-    }
-
-    /* Make the logo a bit smaller on mobile */
-    .company-logo {
-        height: 40px;
-    }
-
-    /* Show the hamburger button */
-    .nav-toggle {
-        display: block;
-    }
-
-    /* Hide the navigation links */
-    .main-nav {
-        /* Position it as a dropdown menu */
-        position: absolute;
-        top: 60px;
-        /* This must be the height of your mobile header */
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-
-        /* Hide the menu by default */
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-
-        /* Stack links vertically */
-        flex-direction: column;
-        gap: 0;
-        /* Remove the gap from desktop */
-    }
-
-    /* This class is added by JavaScript to show the menu */
-    .main-nav.nav-open {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* Style the links for the mobile dropdown */
-    .main-nav .nav-link {
-        display: block;
-        padding: 15px 20px;
-        text-align: center;
-        border-bottom: 1px solid #f0f0f0;
-    }
-
-    .nav-link a:hover {
-        background-color: #000000;
-    }
-    
-    .main-nav .nav-link:last-child {
-        border-bottom: none;
-    }
-
-
-}
-
-
-
 
 /* Flex container for logo and nav */
 .header-container {
     display: flex;
     justify-content: space-between;
-    /* Pushes logo and nav to opposite ends */
     align-items: center;
-    /* Vertically centers items */
     max-width: 1400px;
-    /* Optional: limits width on very large screens */
     margin: 0 auto;
-    /* Centers the container */
 }
 
-
-/* Logo image link */
 .logo-link {
     display: inline-block;
-    /* Removes extra spacing */
 }
 
-/* The logo image itself */
 .company-logo {
     height: 70px;
-    /* <-- ADJUST THIS to your logo's size */
     width: auto;
-    /* Maintains the aspect ratio */
     display: block;
-    /* Important for alignment */
 }
 
-/* Navigation links container */
+/* Navigation Menu */
 .main-nav {
     display: flex;
-    gap: 35px;
-    /* Space between the navigation links */
+    gap: 50px; /* INCREASED SPACING BETWEEN TABS */
+    align-items: center;
 }
 
-/* Individual navigation links */
 .nav-link {
     text-decoration: none;
-    /* Removes underline */
-    color: #333333;
-    /* Dark gray link color */
-    font-size: 1rem;
-    font-weight: 500;
+    color: #475569; /* Slightly softer dark gray */
+    font-size: 1.05rem;
+    font-weight: 600;
     padding: 5px 0;
-    /* Small padding for easier clicking */
+    position: relative; /* Needed for the hover underline */
     transition: color 0.3s ease;
-    /* Smooth color change on hover */
 }
 
-/* Hover effect for links */
+/* Modern animated underline on hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00A8E8;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
 .nav-link:hover {
-    color: #000000;
-    /* Darker color on hover */
+    color: #0B2545;
 }
 
-/* Active link style */
+.nav-link:hover::after {
+    width: 100%; /* Line expands on hover */
+}
+
 .nav-link.active {
-    color: #000000;
+    color: #0B2545;
     font-weight: 700;
 }
 
+.nav-link.active::after {
+    width: 100%; /* Active tab always has the underline */
+}
 
-
+/* Responsive (Mobile) Header Styles */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 10px 20px;
+    }
+    .company-logo {
+        height: 40px;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .main-nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        flex-direction: column;
+        gap: 0;
+    }
+    .main-nav.nav-open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .main-nav .nav-link {
+        display: block;
+        padding: 20px; /* More tap-friendly spacing on mobile */
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-link::after {
+        display: none; /* Hide animated underline on mobile */
+    }
+    .nav-link:hover {
+        background-color: #F8FAFC;
+        color: #00A8E8;
+    }
+    .main-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+}
 
 /* === Footer Styles === */
-
 .site-footer {
-    background-color: #898989;
-    /* Dark background from screenshot */
-    color: #f5f5f5;
-    /* Light text color */
+    background-color: #0B2545; /* Changed to primary dark blue for more color */
+    color: #e2e8f0;
     padding: 60px 40px 20px 40px;
-    /* Top, Horizontal, Bottom padding */
-    font-size: 0.9rem;
-    /* Make sure footer is at the bottom */
+    font-size: 0.95rem;
     margin-top: auto;
 }
 
-/* Flex container for the columns */
 .footer-content {
     display: flex;
     flex-wrap: wrap;
-    /* Allows columns to stack on small screens */
     justify-content: space-between;
-    /* Distributes columns */
     align-items: flex-start;
-    /* Aligns columns to the top */
     max-width: 1400px;
-    /* Optional: matches header width */
     margin: 0 auto 30px auto;
-    /* Center it, add margin at the bottom */
     gap: 30px;
-    /* Space between columns */
 }
 
-/* Styles for each column */
 .footer-column {
     flex: 1;
-    /* Allows columns to grow */
     min-width: 200px;
-    /* Prevents columns from getting too narrow */
 }
 
-/* Column 1: Brand */
 #footer-brand .company-name {
     font-size: 1.5rem;
-    /* Adjusted for your longer name */
     font-weight: 700;
     color: #ffffff;
     margin: 0;
 }
 
-/* Column 2: Legal Links */
 #footer-legal a {
     display: block;
-    /* Stack links vertically */
-    color: #f5f5f5;
+    color: #cbd5e1;
     text-decoration: none;
     margin-bottom: 10px;
     transition: color 0.3s ease;
 }
 
 #footer-legal a:hover {
-    color: #ffffff;
-    text-decoration: underline;
+    color: #00A8E8; /* Hover effect uses your accent color */
 }
 
-/* Column 3: Contact Info */
 #footer-contact-info p {
     margin: 0 0 10px 0;
     line-height: 1.5;
-    color: #f5f5f5;
+    color: #cbd5e1;
 }
 
-/* Column 4: Social Media */
 #footer-social a {
-    /* We're styling text links for now */
     display: inline-block;
-    color: #f5f5f5;
+    color: #cbd5e1;
     text-decoration: none;
     margin-right: 15px;
-    /* Space between social links */
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #footer-social a:hover {
-    color: #ffffff;
+    color: #00A8E8;
+    transform: translateY(-3px); /* Icons bump up slightly on hover */
 }
 
-/* Bottom Bar: Copyright */
 .footer-bottom {
-    border-top: 1px solid #444;
-    /* Separator line */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     text-align: center;
-    font-size: 0.8rem;
-    color: #aaaaaa;
+    font-size: 0.85rem;
+    color: #94a3b8;
 }
 
 .footer-bottom p {
     margin: 5px 0;
 }
 
-/* === Responsive (Mobile) Styles === */
-/* This makes it look good on phones */
+/* Responsive (Mobile) Footer */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
-        /* Stack columns vertically */
         align-items: center;
-        /* Center-align content */
         text-align: center;
     }
-
     .footer-column {
         width: 100%;
-        /* Each column takes full width */
         margin-bottom: 20px;
     }
-
     #footer-social a {
         margin: 0 10px;
-        /* Adjust spacing for centered links */
     }
+}
+
+/* ============================= */
+/* PAGE LOADER STYLES */
+/* ============================= */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F8FAFC; /* Matches your --light-bg */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Ensures it stays on top of the header */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    /* The track of the spinner (Primary color at 20% opacity) */
+    border: 6px solid rgba(11, 37, 69, 0.2); 
+    /* The spinning part (Accent color) */
+    border-top-color: #00A8E8; 
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Class added by JavaScript to fade it out */
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
