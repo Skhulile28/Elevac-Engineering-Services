@@ -1,6 +1,6 @@
-/* ================= */
+
 /* GLOBAL VARIABLES  */
-/* ================= */
+
 :root {
     --primary-color: #0B2545;
     --accent-color: #00A8E8;
@@ -21,17 +21,16 @@ body {
     line-height: 1.6;
 }
 
-/* ============================= */
 /* TYPOGRAPHY & HEADINGS */
-/* ============================= */
+
 h2.page-title {
     color: #fff;
-    font-size: 3.5rem; /* Slightly larger, bolder header text */
+    font-size: 3.5rem; 
     font-weight: 800;
     text-align: center;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Stronger text shadow for readability */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero-subtitle {
@@ -72,11 +71,10 @@ p.section-text {
     font-size: 1.1rem;
 }
 
-/* ============================= */
 /* HERO SECTIONS (FIXED FALLBACK) */
-/* ============================= */
+
 .page-header {
-    background-color: var(--primary-color); /* THIS FIXES THE WHITE BACKGROUND ISSUE */
+    background-color: var(--primary-color); 
     background-size: cover;
     background-position: center;
     background-image: linear-gradient(rgba(11, 37, 69, 0.8), rgba(11, 37, 69, 0.9)); 
@@ -96,9 +94,9 @@ p.section-text {
     position: relative;
 }
 
-/* ============================= */
+
 /* MODERN BUTTONS */
-/* ============================= */
+
 .button-container {
     text-align: center;
     margin-top: 40px;
@@ -117,7 +115,6 @@ p.section-text {
 }
 
 .primary-btn {
-    /* Gradient background for a modern pop of color */
     background: linear-gradient(135deg, var(--accent-color) 0%, #0077a8 100%);
     color: white;
     box-shadow: 0 4px 14px rgba(0, 168, 232, 0.4);
@@ -142,9 +139,8 @@ p.section-text {
     box-shadow: var(--shadow-hover);
 }
 
-/* ============================= */
 /* GRID / CARDS (HOVER UPGRADE) */
-/* ============================= */
+
 .modern-section {
     padding: 80px 20px;
 }
@@ -175,7 +171,7 @@ p.section-text {
 .service-item:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
-    border-color: rgba(0, 168, 232, 0.3); /* Subtle blue glow on hover */
+    border-color: rgba(0, 168, 232, 0.3); 
 }
 
 .img-wrapper {
@@ -196,6 +192,15 @@ p.section-text {
     transform: scale(1.08);
 }
 
+.service-item .img-placeholder {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; 
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .service-name {
     padding: 24px 24px 10px;
     color: var(--primary-color);
@@ -211,9 +216,8 @@ p.section-text {
     flex-grow: 1; 
 }
 
-/* ============================= */
 /* CALL TO ACTION BANNER */
-/* ============================= */
+
 .highlight-bg {
     background: linear-gradient(135deg, var(--primary-color) 0%, #1a3c63 100%);
     color: white;
@@ -239,9 +243,8 @@ p.section-text {
     text-decoration: underline;
 }
 
-/* ============================= */
 /* ABOUT PAGE SPECIFICS */
-/* ============================= */
+
 .about-section {
     max-width: 1000px;
     margin: 60px auto;
@@ -261,18 +264,17 @@ p.section-text {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
+    border-radius: 50px;
 }
 
 .story-image {
     width: 100%;
-    height: 350px;
+    height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50px;
 }
 
-/* ============================= */
-/* MOBILE FIX (HORIZONTAL SCROLL) */
-/* ============================= */
 @media (max-width: 768px) {
     h2.page-title {
         font-size: 2.2rem;
@@ -307,4 +309,40 @@ p.section-text {
         max-width: 300px;
         scroll-snap-align: center;
     }
+}
+
+/* CLIENTS GRID STYLES */
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.client-item {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.04);
+    padding: 30px 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+/* Hover effect to match your service cards */
+.client-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    color: var(--accent-color);
+    border-color: rgba(0, 168, 232, 0.3);
 }
